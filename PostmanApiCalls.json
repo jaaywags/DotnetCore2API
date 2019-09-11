@@ -1,0 +1,647 @@
+{
+	"info": {
+		"_postman_id": "f9881c62-8360-41ad-900a-0b3c3a2cd359",
+		"name": "ASP.NET Core Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Cities",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:50790/api/cities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities"
+					]
+				},
+				"description": "Get cities"
+			},
+			"response": []
+		},
+		{
+			"name": "GET City",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:50790/api/cities/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"1"
+					]
+				},
+				"description": "Get city by id"
+			},
+			"response": []
+		},
+		{
+			"name": "GET City With POIs",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:50790/api/cities/1?includePointsOfInterest=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"1"
+					],
+					"query": [
+						{
+							"key": "includePointsOfInterest",
+							"value": "true"
+						}
+					]
+				},
+				"description": "Get city by id"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Point of Interest",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:50790/api/cities/1/pointsofinterest/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"1",
+						"pointsofinterest",
+						"1"
+					]
+				},
+				"description": "Get point of interest by city id and point of interest id"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Points of Interest",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:50790/api/cities/1/pointsofinterest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"1",
+						"pointsofinterest"
+					]
+				},
+				"description": "Get point of interests by city id"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Points of Interest (throwing exception)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:50790/api/cities/1/pointsofinterest/exception",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"1",
+						"pointsofinterest",
+						"exception"
+					]
+				},
+				"description": "Get point of interests with exception thrown."
+			},
+			"response": []
+		},
+		{
+			"name": "POST Point of Interest",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Père Lachaise\",\n\t\"description\": \"Famous cemetery where Jim Morrison and Oscar Wilde are buried.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:50790/api/cities/3/pointsofinterest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"3",
+						"pointsofinterest"
+					]
+				},
+				"description": "Create Point of Interest"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Point of Interest (can't deserialize)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:50790/api/cities/3/pointsofinterest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"3",
+						"pointsofinterest"
+					]
+				},
+				"description": "Create Point of Interest with no body"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Point of Interest (missing name, long description)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"invalidProperty\": 1,\n\t\"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna nisi, eleifend at rhoncus tempor, pellentesque et diam. Quisque pretium orci ac gravida maximus. Mauris pellentesque odio eget luctus elementum. Nulla viverra elit eu sem sagittis rhoncus. Curabitur iaculis, quam a tincidunt tempus, augue leo efficitur orci, a pellentesque justo velit in eros. Phasellus ligula est, euismod a eros ut, vehicula malesuada quam. Donec semper orci consequat rutrum fermentum. Nullam est purus, fermentum id venenatis sit amet, iaculis accumsan urna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed eu pharetra lacus. Proin vel velit quis est hendrerit volutpat.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:50790/api/cities/3/pointsofinterest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"3",
+						"pointsofinterest"
+					]
+				},
+				"description": "Create Point of Interest with invalid body"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Point of Interest (name == description)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Père Lachaise\",\n\t\"description\": \"Père Lachaise\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:50790/api/cities/3/pointsofinterest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"3",
+						"pointsofinterest"
+					]
+				},
+				"description": "Create Point of Interest with custom error"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Point of Interest",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Updated - Central Park\",\n\t\"description\": \"Updated - The most visited urban park in the United States.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:50790/api/cities/1/pointsofinterest/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"1",
+						"pointsofinterest",
+						"1"
+					]
+				},
+				"description": "Update Point of Interest"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Point of Interest Copy (no description)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Updated - Central Park\",\n}"
+				},
+				"url": {
+					"raw": "http://localhost:50790/api/cities/1/pointsofinterest/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"1",
+						"pointsofinterest",
+						"1"
+					]
+				},
+				"description": "Update Point of Interest"
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Point of Interest",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"op\": \"replace\",\n        \"path\": \"/name\",\n        \"value\": \"Updated - Central Park\"\n    }\n]"
+				},
+				"url": {
+					"raw": "http://localhost:50790/api/cities/1/pointsofinterest/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"1",
+						"pointsofinterest",
+						"1"
+					]
+				},
+				"description": "Partially update Point of Interest"
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Point of Interest (update multiple fields)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"op\": \"replace\",\n        \"path\": \"/name\",\n        \"value\": \"Updated - Central Park\"\n    },\n    {\n        \"op\": \"replace\",\n        \"path\": \"/description\",\n        \"value\": \"Updated - The most visited urban park in the United States.\"\n    }\n]"
+				},
+				"url": {
+					"raw": "http://localhost:50790/api/cities/1/pointsofinterest/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"1",
+						"pointsofinterest",
+						"1"
+					]
+				},
+				"description": "Partial update Point of Interest. Multiple fields."
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Point of Interest (invalid property)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"op\": \"replace\",\n        \"path\": \"/invalidproperty\",\n        \"value\": \"Updated - Central Park\"\n    }\n]"
+				},
+				"url": {
+					"raw": "http://localhost:50790/api/cities/1/pointsofinterest/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"1",
+						"pointsofinterest",
+						"1"
+					]
+				},
+				"description": "Partial update Point of Interest with invalid property."
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Point of Interest (remove required field)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"op\": \"replace\",\n        \"path\": \"/name\"\n    }\n]"
+				},
+				"url": {
+					"raw": "http://localhost:50790/api/cities/1/pointsofinterest/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"1",
+						"pointsofinterest",
+						"1"
+					]
+				},
+				"description": "Partially update Point of Interest removing a required field."
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Point of Interest (name == description)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"op\": \"replace\",\n        \"path\": \"/name\",\n        \"value\": \"Updated - Central Park\"\n    },\n    {\n        \"op\": \"replace\",\n        \"path\": \"/description\",\n        \"value\": \"Updated - Central Park\"\n    }\n]"
+				},
+				"url": {
+					"raw": "http://localhost:50790/api/cities/1/pointsofinterest/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"1",
+						"pointsofinterest",
+						"1"
+					]
+				},
+				"description": "Patch Point of Interest with custom error"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Point of Interest",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:50790/api/cities/1/pointsofinterest/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"cities",
+						"1",
+						"pointsofinterest",
+						"1"
+					]
+				},
+				"description": "Get point of interest by city id and point of interest id"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Test Database",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/xml",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:50790/api/testdatabase",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50790",
+					"path": [
+						"api",
+						"testdatabase"
+					]
+				},
+				"description": "Test our database creation"
+			},
+			"response": []
+		}
+	]
+}
