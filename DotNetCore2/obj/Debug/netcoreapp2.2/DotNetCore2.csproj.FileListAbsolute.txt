@@ -1,0 +1,15 @@
+C:\Workspaces\Pluralsight\DotNetCore2\DotNetCore2\bin\Debug\netcoreapp2.2\DotNetCore2.deps.json
+C:\Workspaces\Pluralsight\DotNetCore2\DotNetCore2\bin\Debug\netcoreapp2.2\DotNetCore2.runtimeconfig.json
+C:\Workspaces\Pluralsight\DotNetCore2\DotNetCore2\bin\Debug\netcoreapp2.2\DotNetCore2.runtimeconfig.dev.json
+C:\Workspaces\Pluralsight\DotNetCore2\DotNetCore2\bin\Debug\netcoreapp2.2\DotNetCore2.dll
+C:\Workspaces\Pluralsight\DotNetCore2\DotNetCore2\bin\Debug\netcoreapp2.2\DotNetCore2.pdb
+C:\Workspaces\Pluralsight\DotNetCore2\DotNetCore2\obj\Debug\netcoreapp2.2\DotNetCore2.csprojAssemblyReference.cache
+C:\Workspaces\Pluralsight\DotNetCore2\DotNetCore2\obj\Debug\netcoreapp2.2\DotNetCore2.csproj.CoreCompileInputs.cache
+C:\Workspaces\Pluralsight\DotNetCore2\DotNetCore2\obj\Debug\netcoreapp2.2\DotNetCore2.RazorAssemblyInfo.cache
+C:\Workspaces\Pluralsight\DotNetCore2\DotNetCore2\obj\Debug\netcoreapp2.2\DotNetCore2.RazorAssemblyInfo.cs
+C:\Workspaces\Pluralsight\DotNetCore2\DotNetCore2\obj\Debug\netcoreapp2.2\DotNetCore2.AssemblyInfoInputs.cache
+C:\Workspaces\Pluralsight\DotNetCore2\DotNetCore2\obj\Debug\netcoreapp2.2\DotNetCore2.AssemblyInfo.cs
+C:\Workspaces\Pluralsight\DotNetCore2\DotNetCore2\obj\Debug\netcoreapp2.2\DotNetCore2.RazorTargetAssemblyInfo.cache
+C:\Workspaces\Pluralsight\DotNetCore2\DotNetCore2\obj\Debug\netcoreapp2.2\DotNetCore2.dll
+C:\Workspaces\Pluralsight\DotNetCore2\DotNetCore2\obj\Debug\netcoreapp2.2\DotNetCore2.pdb
+C:\Workspaces\Pluralsight\DotNetCore2\DotNetCore2\bin\Debug\netcoreapp2.2\nlog.config

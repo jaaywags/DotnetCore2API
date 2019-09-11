@@ -1,0 +1,36 @@
+2019-03-01 07:25:01.4931|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-01 07:25:02.2423|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-01 07:25:02.5489|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 308.0024ms 404 text/plain
+2019-03-01 07:25:02.6694|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-01 07:25:02.6821|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 12.9698ms 404 text/plain
+2019-03-01 07:25:12.6792|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DELETE http://localhost:50790/api/cities/1/pointsofinterest/1  0
+2019-03-01 07:25:12.7285|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "DeletePointOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.DeletePointOfInterest (DotNetCore2)
+2019-03-01 07:25:12.8879|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.DeletePointOfInterest (DotNetCore2) with arguments (1, 1) - Validation state: Valid
+2019-03-01 07:25:12.9060|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.DeletePointOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.NoContentResult in 3.5764ms.
+2019-03-01 07:25:12.9246|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 204
+2019-03-01 07:25:12.9392|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.DeletePointOfInterest (DotNetCore2) in 196.6572ms
+2019-03-01 07:25:12.9598|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 281.6556ms 204 
+2019-03-01 07:25:37.5145|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-01 07:25:38.2834|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-01 07:25:38.6133|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 330.0086ms 404 text/plain
+2019-03-01 07:25:38.7349|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-01 07:25:38.7471|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 12.2438ms 404 text/plain
+2019-03-01 07:25:45.0150|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DELETE http://localhost:50790/api/cities/1/pointsofinterest/1  0
+2019-03-01 07:25:45.0682|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "DeletePointOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.DeletePointOfInterest (DotNetCore2)
+2019-03-01 07:25:45.2292|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.DeletePointOfInterest (DotNetCore2) with arguments (1, 1) - Validation state: Valid
+2019-03-01 07:25:45.2458|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.DeletePointOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.NoContentResult in 3.8652ms.
+2019-03-01 07:25:45.2745|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 204
+2019-03-01 07:25:45.2907|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.DeletePointOfInterest (DotNetCore2) in 207.3779ms
+2019-03-01 07:25:45.3129|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 299.6507ms 204 
+2019-03-01 07:46:28.3826|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-01 07:46:29.1196|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-01 07:46:29.4249|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 306.0752ms 404 text/plain
+2019-03-01 07:46:29.5699|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-01 07:46:29.5699|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 13.1703ms 404 text/plain
+2019-03-01 07:46:39.9534|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DELETE http://localhost:50790/api/cities/1/pointsofinterest/1  0
+2019-03-01 07:46:40.0019|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "DeletePointOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.DeletePointOfInterest (DotNetCore2)
+2019-03-01 07:46:40.1705|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.DeletePointOfInterest (DotNetCore2) with arguments (1, 1) - Validation state: Valid
+2019-03-01 07:46:40.1899|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.DeletePointOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.NoContentResult in 4.3822ms.
+2019-03-01 07:46:40.2125|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 204
+2019-03-01 07:46:40.2277|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.DeletePointOfInterest (DotNetCore2) in 208.8621ms
+2019-03-01 07:46:40.2496|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 296.6501ms 204 

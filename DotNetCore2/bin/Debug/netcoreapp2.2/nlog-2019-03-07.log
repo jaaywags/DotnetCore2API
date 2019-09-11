@@ -1,0 +1,1557 @@
+2019-03-07 08:02:35.3717|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 08:02:36.4060|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 08:02:36.8502|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 445.3134ms 404 text/plain
+2019-03-07 08:02:37.0205|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 08:02:37.0348|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 14.2774ms 404 text/plain
+2019-03-07 08:37:30.3257|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/testdatabase  
+2019-03-07 08:37:30.3497|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 27.2647ms 404 text/plain
+2019-03-07 08:38:53.0684|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 08:38:53.8523|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 08:38:54.1888|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 333.7066ms 404 text/plain
+2019-03-07 08:38:55.1146|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 08:38:55.1277|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 18.7755ms 404 text/plain
+2019-03-07 08:39:44.5742|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/testdatabase  
+2019-03-07 08:39:44.6123|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "TestDatabase", controller = "Dummy"}. Executing action DotNetCore2.Controllers.DummyController.TestDatabase (DotNetCore2)
+2019-03-07 08:39:45.6032|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 08:39:56.8495|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (691ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [CityInfoDB];
+2019-03-07 08:39:57.0132|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (152ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [CityInfoDB] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2019-03-07 08:39:57.1135|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (33ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Cities] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(50) NOT NULL,
+    [Description] nvarchar(200) NULL,
+    CONSTRAINT [PK_Cities] PRIMARY KEY ([Id])
+);
+2019-03-07 08:39:57.1500|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [PointOfInterest] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(50) NOT NULL,
+    [CityId] int NOT NULL,
+    CONSTRAINT [PK_PointOfInterest] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_PointOfInterest_Cities_CityId] FOREIGN KEY ([CityId]) REFERENCES [Cities] ([Id]) ON DELETE CASCADE
+);
+2019-03-07 08:39:57.1887|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_PointOfInterest_CityId] ON [PointOfInterest] ([CityId]);
+2019-03-07 08:39:57.2780|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.DummyController.TestDatabase (DotNetCore2) - Validation state: Valid
+2019-03-07 08:39:57.2938|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.DummyController.TestDatabase (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkResult in 0.5561ms.
+2019-03-07 08:39:57.3134|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 200
+2019-03-07 08:39:57.3274|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.DummyController.TestDatabase (DotNetCore2) in 12689.4062ms
+2019-03-07 08:39:57.3497|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 12775.4217ms 200 
+2019-03-07 09:27:05.5490|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 09:27:06.1109|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-03-07 09:32:51.1134|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 09:32:53.1212|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 09:32:53.4775|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 361.0702ms 404 text/plain
+2019-03-07 09:32:53.5966|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 09:32:53.6079|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 11.2775ms 404 text/plain
+2019-03-07 09:32:55.9499|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/testdatabase  
+2019-03-07 09:32:55.9855|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "TestDatabase", controller = "Dummy"}. Executing action DotNetCore2.Controllers.DummyController.TestDatabase (DotNetCore2)
+2019-03-07 09:32:56.5041|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 09:33:07.5641|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (653ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [CityInfoDB];
+2019-03-07 09:33:07.7223|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (147ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [CityInfoDB] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2019-03-07 09:33:07.8278|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (33ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2019-03-07 09:33:07.8938|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (30ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 09:33:07.9364|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (30ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 09:33:07.9519|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20190307152706_CityInfoDBInitialMigration'.
+2019-03-07 09:33:07.9973|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Cities] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(50) NOT NULL,
+    [Description] nvarchar(200) NULL,
+    CONSTRAINT [PK_Cities] PRIMARY KEY ([Id])
+);
+2019-03-07 09:33:08.0318|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [PointOfInterest] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(50) NOT NULL,
+    [CityId] int NOT NULL,
+    CONSTRAINT [PK_PointOfInterest] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_PointOfInterest_Cities_CityId] FOREIGN KEY ([CityId]) REFERENCES [Cities] ([Id]) ON DELETE CASCADE
+);
+2019-03-07 09:33:08.0632|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_PointOfInterest_CityId] ON [PointOfInterest] ([CityId]);
+2019-03-07 09:33:08.0982|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20190307152706_CityInfoDBInitialMigration', N'2.2.2-servicing-10034');
+2019-03-07 09:33:08.1782|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.DummyController.TestDatabase (DotNetCore2) - Validation state: Valid
+2019-03-07 09:33:08.1930|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.DummyController.TestDatabase (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkResult in 0.4606ms.
+2019-03-07 09:33:08.2109|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 200
+2019-03-07 09:33:08.2299|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.DummyController.TestDatabase (DotNetCore2) in 12226.8867ms
+2019-03-07 09:33:08.2534|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 12302.927ms 200 
+2019-03-07 09:36:19.3571|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 09:36:19.7991|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 09:36:19.8099|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 09:36:19.8216|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 09:36:19.8345|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 09:38:14.7583|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 09:38:15.5080|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 09:38:15.8429|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 334.6607ms 404 text/plain
+2019-03-07 09:38:15.9658|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 09:38:15.9783|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 12.8743ms 404 text/plain
+2019-03-07 09:38:18.9822|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/testdatabase  
+2019-03-07 09:38:19.0144|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "TestDatabase", controller = "Dummy"}. Executing action DotNetCore2.Controllers.DummyController.TestDatabase (DotNetCore2)
+2019-03-07 09:38:19.5075|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 09:38:19.8374|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (105ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 09:38:19.8798|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 09:38:19.9209|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 09:38:19.9378|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20190307153619_CityInfoDBAddPOIDescription'.
+2019-03-07 09:38:19.9870|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [PointOfInterest] ADD [Description] nvarchar(200) NULL;
+2019-03-07 09:38:20.0176|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20190307153619_CityInfoDBAddPOIDescription', N'2.2.2-servicing-10034');
+2019-03-07 09:38:20.0989|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.DummyController.TestDatabase (DotNetCore2) - Validation state: Valid
+2019-03-07 09:38:20.1137|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.DummyController.TestDatabase (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkResult in 0.3987ms.
+2019-03-07 09:38:20.1334|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 200
+2019-03-07 09:38:20.1483|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.DummyController.TestDatabase (DotNetCore2) in 1119.8716ms
+2019-03-07 09:38:20.1707|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1188.6672ms 200 
+2019-03-07 09:44:03.9392|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 09:44:04.7536|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 09:44:05.0794|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 327.5094ms 404 text/plain
+2019-03-07 09:44:05.2003|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 09:44:05.2117|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 11.509ms 404 text/plain
+2019-03-07 09:56:52.8054|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 09:56:53.5590|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 09:56:53.8922|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 333.1531ms 404 text/plain
+2019-03-07 09:56:54.0113|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 09:56:54.0343|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 23.4545ms 404 text/plain
+2019-03-07 10:01:42.4776|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 10:01:43.2239|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 10:01:43.5650|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 342.2607ms 404 text/plain
+2019-03-07 10:01:43.6988|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 10:01:43.7288|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 16.5746ms 404 text/plain
+2019-03-07 10:02:06.8950|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 10:02:07.5973|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 10:02:07.9270|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 330.5927ms 404 text/plain
+2019-03-07 10:02:08.0531|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 10:02:08.0645|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 11.7774ms 404 text/plain
+2019-03-07 10:04:01.4445|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 10:04:02.2255|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 10:04:02.5748|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 349.4827ms 404 text/plain
+2019-03-07 10:04:02.7557|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 10:04:02.7557|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 12.3208ms 404 text/plain
+2019-03-07 10:07:59.8191|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 10:08:00.5470|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 10:08:00.8891|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 343.1133ms 404 text/plain
+2019-03-07 10:08:01.1178|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 10:08:01.1361|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 20.1318ms 404 text/plain
+2019-03-07 10:35:21.7964|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 10:35:22.6801|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 10:36:12.3157|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 10:36:13.1026|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 10:36:17.5590|FATAL|Microsoft.AspNetCore.Hosting.Internal.WebHost|Application startup exception
+2019-03-07 10:36:17.7110|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 10:36:17.7990|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 88.2368ms 500 text/html; charset=utf-8
+2019-03-07 10:36:18.1318|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 10:36:18.1970|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 63.1496ms 500 text/html; charset=utf-8
+2019-03-07 10:37:16.2516|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 10:37:17.0449|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 10:37:30.7740|FATAL|Microsoft.AspNetCore.Hosting.Internal.WebHost|Application startup exception
+2019-03-07 10:37:30.9197|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 10:37:31.0217|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 102.438ms 500 text/html; charset=utf-8
+2019-03-07 10:37:31.4814|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 10:37:31.5078|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 23.2638ms 500 text/html; charset=utf-8
+2019-03-07 12:36:42.5943|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 12:36:43.6565|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 12:36:44.0256|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (51ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 12:36:44.0577|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 12:36:44.0972|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 12:36:44.1141|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 12:36:44.5586|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 12:36:44.7553|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (25ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 200), @p2='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Cities] ([Id], [Description], [Name])
+VALUES (@p0, @p1, @p2);
+2019-03-07 12:36:44.7733|ERROR|Microsoft.EntityFrameworkCore.Update|An exception occurred in the database while saving changes for context type 'DotNetCore2.Entities.CityInfoContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Cannot insert explicit value for identity column in table 'Cities' when IDENTITY_INSERT is set to OFF.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2019-03-07 12:37:43.9284|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 12:37:44.8752|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 12:37:45.2813|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (55ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 12:37:45.3218|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 12:37:45.3589|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 12:37:45.3953|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 12:37:45.8258|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 12:37:45.9722|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (36ms) [Parameters=[@p0='?' (Size = 200), @p1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Cities] ([Description], [Name])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [Cities]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-03-07 12:37:46.0230|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (17ms) [Parameters=[@p0='?' (Size = 200), @p1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Cities] ([Description], [Name])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [Cities]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-03-07 12:37:46.0533|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (18ms) [Parameters=[@p0='?' (Size = 200), @p1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Cities] ([Description], [Name])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [Cities]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-03-07 12:37:46.0957|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (31ms) [Parameters=[@p2='?' (DbType = Int32), @p3='?' (Size = 200), @p4='?' (Size = 50), @p5='?' (DbType = Int32), @p6='?' (Size = 200), @p7='?' (Size = 50), @p8='?' (DbType = Int32), @p9='?' (Size = 200), @p10='?' (Size = 50), @p11='?' (DbType = Int32), @p12='?' (Size = 200), @p13='?' (Size = 50), @p14='?' (DbType = Int32), @p15='?' (Size = 200), @p16='?' (Size = 50), @p17='?' (DbType = Int32), @p18='?' (Size = 200), @p19='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DECLARE @inserted0 TABLE ([Id] int, [_Position] [int]);
+MERGE [PointOfInterest] USING (
+VALUES (@p2, @p3, @p4, 0),
+(@p5, @p6, @p7, 1),
+(@p8, @p9, @p10, 2),
+(@p11, @p12, @p13, 3),
+(@p14, @p15, @p16, 4),
+(@p17, @p18, @p19, 5)) AS i ([CityId], [Description], [Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CityId], [Description], [Name])
+VALUES (i.[CityId], i.[Description], i.[Name])
+OUTPUT INSERTED.[Id], i._Position
+INTO @inserted0;
+
+SELECT [t].[Id] FROM [PointOfInterest] t
+INNER JOIN @inserted0 i ON ([t].[Id] = [i].[Id])
+ORDER BY [i].[_Position];
+2019-03-07 12:37:46.2589|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 12:37:46.5749|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 317.2184ms 404 text/plain
+2019-03-07 12:37:46.7178|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 12:37:46.7298|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 12.3555ms 404 text/plain
+2019-03-07 12:38:12.2389|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 12:38:13.8674|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 12:38:14.2229|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (46ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 12:38:14.2573|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 12:38:14.2923|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 12:38:14.3108|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 12:38:17.9649|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 12:38:34.2435|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 12:38:42.2153|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 12:38:42.4931|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 280.3615ms 404 text/plain
+2019-03-07 12:38:42.6103|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 12:38:42.6298|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 19.7954ms 404 text/plain
+2019-03-07 12:39:24.3475|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest/1  
+2019-03-07 12:39:24.3890|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2)
+2019-03-07 12:39:24.5167|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) with arguments (1, 1) - Validation state: Valid
+2019-03-07 12:39:24.5350|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2.7688ms.
+2019-03-07 12:39:24.5658|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.PointsOfInterestDto'.
+2019-03-07 12:39:24.6522|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) in 236.6433ms
+2019-03-07 12:39:24.6522|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 316.9918ms 200 application/json; charset=utf-8
+2019-03-07 12:39:34.4013|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest  
+2019-03-07 12:39:34.4399|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2)
+2019-03-07 12:39:34.4730|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) with arguments (1) - Validation state: Valid
+2019-03-07 12:39:34.5552|FATAL|DotNetCore2.Controllers.PointsOfInterestController|Exception while getting points of interest for city with id 1
+2019-03-07 12:39:34.5669|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 81.8278ms.
+2019-03-07 12:39:34.5781|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.String'.
+2019-03-07 12:39:34.5905|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) in 138.5447ms
+2019-03-07 12:39:34.5905|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 202.4533ms 500 text/plain; charset=utf-8
+2019-03-07 12:39:37.8130|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest  
+2019-03-07 12:39:37.8242|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2)
+2019-03-07 12:39:37.8555|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) with arguments (1) - Validation state: Valid
+2019-03-07 12:39:37.9107|FATAL|DotNetCore2.Controllers.PointsOfInterestController|Exception while getting points of interest for city with id 1
+2019-03-07 12:39:37.9223|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 56.2913ms.
+2019-03-07 12:39:37.9338|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.String'.
+2019-03-07 12:39:37.9338|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) in 108.3295ms
+2019-03-07 12:39:37.9541|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 141.1534ms 500 text/plain; charset=utf-8
+2019-03-07 12:40:01.9256|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest  
+2019-03-07 12:40:01.9370|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2)
+2019-03-07 12:40:01.9834|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) with arguments (1) - Validation state: Valid
+2019-03-07 12:40:02.0564|FATAL|DotNetCore2.Controllers.PointsOfInterestController|Exception while getting points of interest for city with id 1
+2019-03-07 12:40:02.0778|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 72.5254ms.
+2019-03-07 12:40:02.0902|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.String'.
+2019-03-07 12:40:02.0902|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) in 154.5681ms
+2019-03-07 12:40:02.1169|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 189.2289ms 500 text/plain; charset=utf-8
+2019-03-07 12:41:21.7435|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest/1  
+2019-03-07 12:41:21.7664|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2)
+2019-03-07 12:41:21.8076|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) with arguments (1, 1) - Validation state: Valid
+2019-03-07 12:41:21.8188|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.0173ms.
+2019-03-07 12:41:21.8306|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.PointsOfInterestDto'.
+2019-03-07 12:41:21.8557|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) in 75.9606ms
+2019-03-07 12:41:21.8792|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 138.3744ms 200 application/json; charset=utf-8
+2019-03-07 12:41:25.0346|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest  
+2019-03-07 12:41:25.0451|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2)
+2019-03-07 12:41:25.0784|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) with arguments (1) - Validation state: Valid
+2019-03-07 12:41:25.1397|FATAL|DotNetCore2.Controllers.PointsOfInterestController|Exception while getting points of interest for city with id 1
+2019-03-07 12:41:25.1397|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 61.0208ms.
+2019-03-07 12:41:25.1631|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.String'.
+2019-03-07 12:41:25.1763|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) in 119.0781ms
+2019-03-07 12:41:25.1879|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 153.0619ms 500 text/plain; charset=utf-8
+2019-03-07 12:45:10.3407|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest  
+2019-03-07 12:45:10.3529|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2)
+2019-03-07 12:45:10.4099|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) with arguments (1) - Validation state: Valid
+2019-03-07 12:45:10.4822|FATAL|DotNetCore2.Controllers.PointsOfInterestController|Exception while getting points of interest for city with id 1
+2019-03-07 12:45:10.4938|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 72.5469ms.
+2019-03-07 12:45:10.5049|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.String'.
+2019-03-07 12:45:10.5049|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) in 151.8129ms
+2019-03-07 12:45:10.5368|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 196.6514ms 500 text/plain; charset=utf-8
+2019-03-07 12:45:25.4781|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest/1  
+2019-03-07 12:45:25.4897|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2)
+2019-03-07 12:45:25.5208|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) with arguments (1, 1) - Validation state: Valid
+2019-03-07 12:45:54.9624|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 29392.7595ms.
+2019-03-07 12:45:54.9803|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.PointsOfInterestDto'.
+2019-03-07 12:45:55.0058|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) in 29504.4431ms
+2019-03-07 12:45:55.0058|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 29549.404ms 200 application/json; charset=utf-8
+2019-03-07 12:46:25.3833|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest/1  
+2019-03-07 12:46:25.3833|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2)
+2019-03-07 12:46:25.4599|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) with arguments (1, 1) - Validation state: Valid
+2019-03-07 12:46:42.0275|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 16548.6953ms.
+2019-03-07 12:46:42.0381|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.PointsOfInterestDto'.
+2019-03-07 12:46:42.0649|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) in 16659.7997ms
+2019-03-07 12:46:42.0760|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 16692.2414ms 200 application/json; charset=utf-8
+2019-03-07 12:46:49.1977|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest  
+2019-03-07 12:46:49.1977|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2)
+2019-03-07 12:46:49.2396|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) with arguments (1) - Validation state: Valid
+2019-03-07 12:47:21.0822|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 12:47:21.9664|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 12:47:22.4247|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (92ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 12:47:22.4546|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 12:47:22.4944|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 12:47:22.5125|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 12:52:38.5191|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 12:52:38.7147|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 12:52:39.0000|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 286.2341ms 404 text/plain
+2019-03-07 12:52:39.1049|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 12:52:39.1289|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 24.4631ms 404 text/plain
+2019-03-07 12:52:46.5675|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest  
+2019-03-07 12:52:46.6123|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2)
+2019-03-07 12:52:46.7351|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) with arguments (1) - Validation state: Valid
+2019-03-07 12:52:46.7351|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2.4674ms.
+2019-03-07 12:52:46.7673|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DotNetCore2.Models.PointsOfInterestDto, DotNetCore2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-03-07 12:52:46.8412|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) in 215.5395ms
+2019-03-07 12:52:46.8528|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 285.9275ms 200 application/json; charset=utf-8
+2019-03-07 13:57:52.9132|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 13:57:53.7673|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 13:57:56.2784|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (90ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 13:57:56.3208|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 13:57:56.3607|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 13:57:56.3795|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 13:57:57.9466|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1,092ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 13:57:58.1047|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 13:57:58.4067|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 302.5003ms 404 text/plain
+2019-03-07 13:57:58.5318|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 13:57:58.5552|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 13.1549ms 404 text/plain
+2019-03-07 13:57:59.6518|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities  
+2019-03-07 13:57:59.6908|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCities", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCities (DotNetCore2)
+2019-03-07 13:57:59.7230|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 13:57:59.7738|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (39ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 13:57:59.8102|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 13:57:59.8459|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 13:57:59.8573|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 13:57:59.9389|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCities (DotNetCore2) - Validation state: Valid
+2019-03-07 13:58:00.0132|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (45ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+ORDER BY [c].[Name]
+2019-03-07 13:58:00.0291|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCities (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 75.8677ms.
+2019-03-07 13:58:00.0472|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DotNetCore2.Models.CityWithoutPointsOfInterestDto, DotNetCore2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-03-07 13:58:00.1243|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCities (DotNetCore2) in 419.4209ms
+2019-03-07 13:58:00.1370|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 485.2809ms 200 application/json; charset=utf-8
+2019-03-07 14:04:48.1717|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 14:04:50.0739|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:04:52.3262|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (88ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:04:52.3561|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:04:52.3959|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:04:52.4128|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:04:52.8463|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 14:04:53.0345|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 14:04:53.3198|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 285.6473ms 404 text/plain
+2019-03-07 14:04:53.4462|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 14:04:53.4685|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 15.363ms 404 text/plain
+2019-03-07 14:05:09.9351|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1  
+2019-03-07 14:05:09.9785|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 14:05:10.0225|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:05:10.0871|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (41ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:05:10.1234|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:05:10.1596|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:05:10.1596|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:05:10.2606|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (1, False) - Validation state: Valid
+2019-03-07 14:05:10.3406|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (34ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+2019-03-07 14:05:10.3558|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 81.1399ms.
+2019-03-07 14:05:10.3753|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.CityWithoutPointsOfInterestDto'.
+2019-03-07 14:05:10.4491|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) in 453.3307ms
+2019-03-07 14:05:10.4615|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 526.671ms 200 application/json; charset=utf-8
+2019-03-07 14:05:30.9313|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/true  
+2019-03-07 14:05:30.9439|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 12.4348ms 404 text/plain
+2019-03-07 14:05:52.3596|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/10  
+2019-03-07 14:05:52.3726|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 14:05:52.4028|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:05:52.4383|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:05:52.4770|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:05:52.5169|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (28ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:05:52.5295|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:05:52.5594|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (10, False) - Validation state: Valid
+2019-03-07 14:05:52.6023|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (31ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+2019-03-07 14:05:52.6145|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.NotFoundResult in 44.4077ms.
+2019-03-07 14:05:52.6285|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 404
+2019-03-07 14:05:52.6285|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) in 255.5843ms
+2019-03-07 14:05:52.6503|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 291.8158ms 404 text/plain
+2019-03-07 14:06:23.2577|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1?includePointsOfInterest=true  
+2019-03-07 14:06:23.2577|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 14:06:23.2891|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:06:23.3337|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:06:23.3640|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:06:23.3964|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:06:23.3964|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:06:23.4407|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (1, True) - Validation state: Valid
+2019-03-07 14:06:23.4775|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+2019-03-07 14:06:23.4886|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 36.7099ms.
+2019-03-07 14:06:23.4886|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.CityDto'.
+2019-03-07 14:06:23.5278|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) in 240.6736ms
+2019-03-07 14:06:23.5386|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 281.4992ms 200 application/json; charset=utf-8
+2019-03-07 14:08:07.3830|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 14:08:08.2085|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:08:08.6389|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (86ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:08:08.6836|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:08:08.7241|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:08:08.7412|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:08:09.1577|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 14:08:09.3213|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 14:08:09.5788|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 257.5556ms 404 text/plain
+2019-03-07 14:08:09.7044|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 14:08:09.7295|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 26.8071ms 404 text/plain
+2019-03-07 14:08:12.7961|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1?includePointsOfInterest=true  
+2019-03-07 14:08:12.8353|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 14:08:12.8745|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:08:12.9502|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (43ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:08:12.9911|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:08:13.0310|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:08:13.0419|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:08:13.1376|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (1, True) - Validation state: Valid
+2019-03-07 14:08:20.3584|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (29ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+2019-03-07 14:10:47.3314|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 14:10:48.1867|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:10:48.5580|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (86ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:10:48.5884|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:10:48.6245|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:10:48.6441|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:10:49.0388|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 14:10:49.2235|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 14:10:49.4558|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1?includePointsOfInterest=true  
+2019-03-07 14:10:49.5816|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 359.1941ms 404 text/plain
+2019-03-07 14:10:49.5970|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 14:10:49.6172|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:10:49.6887|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (53ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:10:49.7054|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 14:10:49.7317|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:10:49.7317|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 30.4968ms 404 text/plain
+2019-03-07 14:10:49.7711|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:10:49.7920|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:10:49.9000|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (1, True) - Validation state: Valid
+2019-03-07 14:11:02.8947|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 14:11:10.1453|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 14:11:18.8023|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 14:16:39.4053|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 14:16:41.3556|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:16:41.7843|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (88ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:16:41.8158|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:16:41.8508|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:16:41.8677|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:16:42.2640|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (27ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 14:16:42.4161|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 14:16:42.7271|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 284.4655ms 404 text/plain
+2019-03-07 14:16:42.8451|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 14:16:42.8591|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 13.207ms 404 text/plain
+2019-03-07 14:16:51.6141|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1?includePointsOfInterest=true  
+2019-03-07 14:16:51.6559|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 14:16:51.6836|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:16:51.7801|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (53ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:16:51.8134|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:16:51.8610|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (35ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:16:51.8610|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:16:51.9704|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (1, True) - Validation state: Valid
+2019-03-07 14:16:54.4416|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (30ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+ORDER BY [c].[Id]
+2019-03-07 14:16:54.4955|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (31ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [c.PointsOfInterest].[Id], [c.PointsOfInterest].[CityId], [c.PointsOfInterest].[Description], [c.PointsOfInterest].[Name]
+FROM [PointOfInterest] AS [c.PointsOfInterest]
+INNER JOIN (
+    SELECT TOP(1) [c0].[Id]
+    FROM [Cities] AS [c0]
+    WHERE [c0].[Id] = @__cityId_0
+    ORDER BY [c0].[Id]
+) AS [t] ON [c.PointsOfInterest].[CityId] = [t].[Id]
+ORDER BY [t].[Id]
+2019-03-07 14:16:54.5162|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2533.6324ms.
+2019-03-07 14:16:54.5347|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.CityDto'.
+2019-03-07 14:16:54.6090|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) in 2938.737ms
+2019-03-07 14:16:54.6219|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 3007.3492ms 200 application/json; charset=utf-8
+2019-03-07 14:17:55.2422|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 14:17:56.0836|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:17:56.5413|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (88ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:17:56.5699|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:17:56.6054|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:17:56.6219|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:17:57.0273|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 14:17:57.2074|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 14:17:57.2074|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1?includePointsOfInterest=true  
+2019-03-07 14:17:57.4756|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 272.6275ms 404 text/plain
+2019-03-07 14:17:57.4876|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 14:17:57.5296|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:17:57.6122|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (46ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:17:57.6122|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 14:17:57.6542|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:17:57.6748|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 38.2142ms 404 text/plain
+2019-03-07 14:17:57.7317|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (46ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:17:57.7468|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:17:57.8645|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (1, True) - Validation state: Valid
+2019-03-07 14:17:57.9795|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (51ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+2019-03-07 14:17:58.9916|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1111.8074ms.
+2019-03-07 14:17:59.0111|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.CityDto'.
+2019-03-07 14:17:59.0892|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) in 1574.7321ms
+2019-03-07 14:17:59.1029|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1900.0829ms 200 application/json; charset=utf-8
+2019-03-07 14:19:21.9911|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1?includePointsOfInterest=true  
+2019-03-07 14:19:21.9911|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 14:19:22.0371|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:19:22.0691|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:19:22.1026|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:19:22.1511|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:19:22.1632|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:19:22.1971|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (1, True) - Validation state: Valid
+2019-03-07 14:19:22.2332|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+2019-03-07 14:19:22.2458|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 36.9191ms.
+2019-03-07 14:19:22.2575|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.CityDto'.
+2019-03-07 14:19:22.2575|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) in 255.1689ms
+2019-03-07 14:19:22.2789|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 287.8293ms 200 application/json; charset=utf-8
+2019-03-07 14:19:58.6148|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1?includePointsOfInterest=true  
+2019-03-07 14:19:58.6381|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 14:19:58.6701|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:19:58.7137|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:19:58.7477|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:19:58.7830|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:19:58.7943|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:19:58.8251|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (1, True) - Validation state: Valid
+2019-03-07 14:20:12.0095|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 14:20:15.0847|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 14:21:44.5035|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 14:21:46.4711|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:21:46.9289|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (88ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:21:46.9622|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:21:47.0025|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:21:47.0202|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:21:47.4390|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (27ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 14:21:47.6028|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 14:21:47.9023|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 300.1585ms 404 text/plain
+2019-03-07 14:21:48.0140|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 14:21:48.0259|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 12.0059ms 404 text/plain
+2019-03-07 14:21:51.4525|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1?includePointsOfInterest=true  
+2019-03-07 14:21:51.5032|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 14:21:51.5365|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:21:51.5855|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (38ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:21:51.6254|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (28ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:21:51.6625|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:21:51.6745|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:21:51.7684|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (1, True) - Validation state: Valid
+2019-03-07 14:21:55.5470|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (30ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+ORDER BY [c].[Id]
+2019-03-07 14:21:55.6011|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (30ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [c.PointsOfInterest].[Id], [c.PointsOfInterest].[CityId], [c.PointsOfInterest].[Description], [c.PointsOfInterest].[Name]
+FROM [PointOfInterest] AS [c.PointsOfInterest]
+INNER JOIN (
+    SELECT TOP(1) [c0].[Id]
+    FROM [Cities] AS [c0]
+    WHERE [c0].[Id] = @__cityId_0
+    ORDER BY [c0].[Id]
+) AS [t] ON [c.PointsOfInterest].[CityId] = [t].[Id]
+ORDER BY [t].[Id]
+2019-03-07 14:21:55.6288|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3846.335ms.
+2019-03-07 14:21:55.6477|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.CityDto'.
+2019-03-07 14:21:55.7293|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) in 4211.1135ms
+2019-03-07 14:21:55.7293|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 4288.4206ms 200 application/json; charset=utf-8
+2019-03-07 14:36:24.0593|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 14:36:24.8689|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:36:27.2126|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (110ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:36:27.2461|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:36:27.2843|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:36:27.3018|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:36:27.7313|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (27ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 14:36:27.9458|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 14:36:28.2226|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 275.8872ms 404 text/plain
+2019-03-07 14:36:28.3691|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 14:36:28.4222|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 48.7121ms 404 text/plain
+2019-03-07 14:36:46.2912|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest/1  
+2019-03-07 14:36:46.3300|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2)
+2019-03-07 14:36:46.3894|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:36:46.4750|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (59ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:36:46.5145|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (27ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:36:46.5527|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:36:46.5527|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:36:46.6614|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2) with arguments (1, 1) - Validation state: Valid
+2019-03-07 14:36:46.7431|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (29ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Cities] AS [c]
+        WHERE [c].[Id] = @__cityId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-03-07 14:36:46.7941|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (30ms) [Parameters=[@__cityId_0='?' (DbType = Int32), @__pointOfInterestId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CityId], [p].[Description], [p].[Name]
+FROM [PointOfInterest] AS [p]
+WHERE ([p].[CityId] = @__cityId_0) AND ([p].[Id] = @__pointOfInterestId_1)
+2019-03-07 14:36:46.8125|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 136.7542ms.
+2019-03-07 14:36:46.8310|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.PointsOfInterestDto'.
+2019-03-07 14:36:46.9000|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2) in 544.6333ms
+2019-03-07 14:36:46.9117|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 620.3794ms 200 application/json; charset=utf-8
+2019-03-07 14:36:51.0382|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest  
+2019-03-07 14:36:51.0519|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2)
+2019-03-07 14:36:51.0519|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:36:51.1006|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:36:51.1359|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:36:51.1724|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:36:51.1842|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:36:51.2133|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) with arguments (1) - Validation state: Valid
+2019-03-07 14:36:51.2497|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Cities] AS [c]
+        WHERE [c].[Id] = @__cityId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-03-07 14:36:51.3048|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (39ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[CityId], [p].[Description], [p].[Name]
+FROM [PointOfInterest] AS [p]
+WHERE [p].[CityId] = @__cityId_0
+2019-03-07 14:36:51.3048|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 91.6219ms.
+2019-03-07 14:36:51.3294|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DotNetCore2.Models.PointsOfInterestDto, DotNetCore2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-03-07 14:36:51.3435|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) in 280.0402ms
+2019-03-07 14:36:51.3550|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 316.9771ms 200 application/json; charset=utf-8
+2019-03-07 14:37:07.3987|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/4/pointsofinterest  
+2019-03-07 14:37:07.4122|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2)
+2019-03-07 14:37:07.4444|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:37:07.4788|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:37:07.5127|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:37:07.5472|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:37:07.5601|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:37:07.5908|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) with arguments (4) - Validation state: Valid
+2019-03-07 14:37:07.6259|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Cities] AS [c]
+        WHERE [c].[Id] = @__cityId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-03-07 14:37:07.6377|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.NotFoundResult in 35.8509ms.
+2019-03-07 14:37:07.6537|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 404
+2019-03-07 14:37:07.6655|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) in 241.269ms
+2019-03-07 14:37:07.6813|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 282.6927ms 404 text/plain
+2019-03-07 14:37:13.0272|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest  
+2019-03-07 14:37:13.0408|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2)
+2019-03-07 14:37:13.0532|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:37:13.0894|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:37:13.1217|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:37:13.1531|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:37:13.1624|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:37:13.2084|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) with arguments (1) - Validation state: Valid
+2019-03-07 14:37:13.2443|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Cities] AS [c]
+        WHERE [c].[Id] = @__cityId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-03-07 14:37:13.2815|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[CityId], [p].[Description], [p].[Name]
+FROM [PointOfInterest] AS [p]
+WHERE [p].[CityId] = @__cityId_0
+2019-03-07 14:37:13.2927|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 71.8276ms.
+2019-03-07 14:37:13.3045|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DotNetCore2.Models.PointsOfInterestDto, DotNetCore2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-03-07 14:37:13.3045|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) in 263.6619ms
+2019-03-07 14:37:13.3267|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 300.1298ms 200 application/json; charset=utf-8
+2019-03-07 14:37:22.5254|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest/50  
+2019-03-07 14:37:22.5254|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2)
+2019-03-07 14:37:22.5478|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:37:22.5865|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:37:22.6174|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:37:22.6596|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (27ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:37:22.6763|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:37:22.7120|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2) with arguments (1, 50) - Validation state: Valid
+2019-03-07 14:37:22.7496|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Cities] AS [c]
+        WHERE [c].[Id] = @__cityId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-03-07 14:37:22.7872|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[@__cityId_0='?' (DbType = Int32), @__pointOfInterestId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CityId], [p].[Description], [p].[Name]
+FROM [PointOfInterest] AS [p]
+WHERE ([p].[CityId] = @__cityId_0) AND ([p].[Id] = @__pointOfInterestId_1)
+2019-03-07 14:37:22.7872|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.NotFoundResult in 74.7248ms.
+2019-03-07 14:37:22.8124|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 404
+2019-03-07 14:37:22.8280|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2) in 279.4727ms
+2019-03-07 14:37:22.8396|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 313.8205ms 404 text/plain
+2019-03-07 14:37:26.0202|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest/1  
+2019-03-07 14:37:26.0325|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2)
+2019-03-07 14:37:26.0451|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:37:26.0797|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:37:26.1137|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:37:26.1466|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:37:26.1466|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:37:26.1935|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2) with arguments (1, 1) - Validation state: Valid
+2019-03-07 14:37:26.2311|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Cities] AS [c]
+        WHERE [c].[Id] = @__cityId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-03-07 14:37:26.2676|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[@__cityId_0='?' (DbType = Int32), @__pointOfInterestId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CityId], [p].[Description], [p].[Name]
+FROM [PointOfInterest] AS [p]
+WHERE ([p].[CityId] = @__cityId_0) AND ([p].[Id] = @__pointOfInterestId_1)
+2019-03-07 14:37:26.2798|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 73.7948ms.
+2019-03-07 14:37:26.2900|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.PointsOfInterestDto'.
+2019-03-07 14:37:26.2900|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2) in 256.0174ms
+2019-03-07 14:37:26.3103|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 290.557ms 200 application/json; charset=utf-8
+2019-03-07 14:37:31.5237|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/50/pointsofinterest/1  
+2019-03-07 14:37:31.5237|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2)
+2019-03-07 14:37:31.5480|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:37:31.5835|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:37:31.6182|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:37:31.6559|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:37:31.6697|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:37:31.7029|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2) with arguments (50, 1) - Validation state: Valid
+2019-03-07 14:37:31.7375|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Cities] AS [c]
+        WHERE [c].[Id] = @__cityId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-03-07 14:37:31.7500|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.NotFoundResult in 36.0374ms.
+2019-03-07 14:37:31.7611|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 404
+2019-03-07 14:37:31.7736|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2) in 224.9152ms
+2019-03-07 14:37:31.7736|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 262.4404ms 404 text/plain
+2019-03-07 14:42:19.3768|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 14:42:20.1786|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:42:20.6292|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (91ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:42:20.6591|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:42:20.6973|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:42:20.7132|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:42:21.1461|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 14:42:21.5316|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities  
+2019-03-07 14:42:21.5316|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 14:42:21.8249|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCities", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCities (DotNetCore2)
+2019-03-07 14:42:21.8310|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 304.1424ms 404 text/plain
+2019-03-07 14:42:21.8741|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 14:42:21.9224|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (36ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:42:21.9649|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (30ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 14:42:22.0221|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (32ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 14:42:22.0357|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 14:42:22.0541|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 14:42:22.0729|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 16.6607ms 404 text/plain
+2019-03-07 14:42:22.1489|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCities (DotNetCore2) - Validation state: Valid
+2019-03-07 14:42:22.2061|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (28ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+ORDER BY [c].[Name]
+2019-03-07 14:42:22.2597|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCities (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 97.9694ms.
+2019-03-07 14:42:22.2820|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DotNetCore2.Models.CityWithoutPointsOfInterestDto, DotNetCore2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-03-07 14:42:22.3880|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCities (DotNetCore2) in 549.848ms
+2019-03-07 14:42:22.3880|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 873.1183ms 200 application/json; charset=utf-8
+2019-03-07 15:47:05.3625|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 15:47:06.1488|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 15:47:08.4750|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (89ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:47:08.5061|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:47:08.5427|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 15:47:08.5597|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 15:47:08.9763|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (32ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 15:47:09.3552|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 15:47:09.6216|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 267.918ms 404 text/plain
+2019-03-07 15:47:09.7440|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 15:47:09.7668|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 23.2114ms 404 text/plain
+2019-03-07 15:47:14.9268|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities  
+2019-03-07 15:47:14.9597|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCities", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCities (DotNetCore2)
+2019-03-07 15:47:15.0076|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 15:47:15.0595|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (39ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:47:15.0970|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:47:15.1441|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (33ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 15:47:15.1441|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 15:47:15.2308|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCities (DotNetCore2) - Validation state: Valid
+2019-03-07 15:47:15.2830|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+ORDER BY [c].[Name]
+2019-03-07 15:47:15.3263|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCities (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 82.4459ms.
+2019-03-07 15:47:15.3480|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DotNetCore2.Models.CityWithoutPointsOfInterestDto, DotNetCore2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-03-07 15:47:15.4199|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCities (DotNetCore2) in 446.3224ms
+2019-03-07 15:47:15.4329|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 505.5381ms 200 application/json; charset=utf-8
+2019-03-07 15:50:42.4027|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 15:50:44.3787|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 15:50:44.8372|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (89ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:50:44.8670|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:50:44.9072|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 15:50:44.9259|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 15:50:45.3269|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 15:50:45.7306|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 15:50:46.0192|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 289.4106ms 404 text/plain
+2019-03-07 15:50:46.1364|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 15:50:46.1364|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 11.333ms 404 text/plain
+2019-03-07 15:50:51.0825|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1  
+2019-03-07 15:50:51.1237|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 15:50:51.1831|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 15:50:51.2483|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (52ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:50:51.2889|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (28ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:50:51.3274|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 15:50:51.3396|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 15:50:52.5283|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (1, False) - Validation state: Valid
+2019-03-07 15:50:52.6127|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (32ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+2019-03-07 15:50:58.3267|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) in 7188.5077ms
+2019-03-07 15:50:58.3428|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request.
+2019-03-07 15:50:58.4307|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 7351.3887ms 500 text/html; charset=utf-8
+2019-03-07 15:51:21.0750|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1  
+2019-03-07 15:51:21.0868|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 15:51:21.1231|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 15:51:21.1680|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:51:21.2023|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:51:21.2360|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 15:51:21.2489|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 15:51:21.2854|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (1, False) - Validation state: Valid
+2019-03-07 15:51:21.3242|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+2019-03-07 15:51:51.7486|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 30448.5215ms.
+2019-03-07 15:51:51.7679|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.CityWithoutPointsOfInterestDto'.
+2019-03-07 15:51:51.8886|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) in 30791.2708ms
+2019-03-07 15:51:51.8993|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 30825.9263ms 200 application/json; charset=utf-8
+2019-03-07 15:51:54.2314|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1  
+2019-03-07 15:51:54.2538|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 15:51:54.2658|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 15:51:54.2963|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:51:54.3270|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:51:54.3587|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 15:51:54.3728|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 15:51:54.4065|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (1, False) - Validation state: Valid
+2019-03-07 15:51:54.4597|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (41ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+2019-03-07 15:51:54.4597|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 52.5717ms.
+2019-03-07 15:51:54.4840|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.CityWithoutPointsOfInterestDto'.
+2019-03-07 15:51:54.4963|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) in 230.5559ms
+2019-03-07 15:51:54.5078|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 275.533ms 200 application/json; charset=utf-8
+2019-03-07 15:51:58.9271|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1?includePointsOfInterest=true  
+2019-03-07 15:51:58.9402|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 15:51:58.9495|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 15:51:58.9822|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:51:59.0158|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:51:59.0474|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 15:51:59.0591|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 15:51:59.0925|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (1, True) - Validation state: Valid
+2019-03-07 15:51:59.1755|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+ORDER BY [c].[Id]
+2019-03-07 15:51:59.2345|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (36ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [c.PointsOfInterest].[Id], [c.PointsOfInterest].[CityId], [c.PointsOfInterest].[Description], [c.PointsOfInterest].[Name]
+FROM [PointOfInterest] AS [c.PointsOfInterest]
+INNER JOIN (
+    SELECT TOP(1) [c0].[Id]
+    FROM [Cities] AS [c0]
+    WHERE [c0].[Id] = @__cityId_0
+    ORDER BY [c0].[Id]
+) AS [t] ON [c.PointsOfInterest].[CityId] = [t].[Id]
+ORDER BY [t].[Id]
+2019-03-07 15:51:59.2616|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 157.3788ms.
+2019-03-07 15:51:59.2730|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.CityDto'.
+2019-03-07 15:51:59.2892|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) in 339.2718ms
+2019-03-07 15:51:59.2892|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 374.1746ms 200 application/json; charset=utf-8
+2019-03-07 15:52:01.8331|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1  
+2019-03-07 15:52:01.8456|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 15:52:01.8551|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 15:52:01.8881|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:52:01.9205|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:52:01.9532|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 15:52:01.9658|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 15:52:01.9988|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (1, False) - Validation state: Valid
+2019-03-07 15:52:02.0349|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+2019-03-07 15:52:02.0469|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 36.2175ms.
+2019-03-07 15:52:02.0581|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.CityWithoutPointsOfInterestDto'.
+2019-03-07 15:52:02.0820|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) in 215.5169ms
+2019-03-07 15:52:02.0931|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 259.8642ms 200 application/json; charset=utf-8
+2019-03-07 15:52:04.7567|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1?includePointsOfInterest=true  
+2019-03-07 15:52:04.7567|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 15:52:04.7793|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 15:52:04.8101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:52:04.8419|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:52:04.8741|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 15:52:04.8854|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 15:52:04.9177|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (1, True) - Validation state: Valid
+2019-03-07 15:52:04.9523|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+ORDER BY [c].[Id]
+2019-03-07 15:52:04.9884|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [c.PointsOfInterest].[Id], [c.PointsOfInterest].[CityId], [c.PointsOfInterest].[Description], [c.PointsOfInterest].[Name]
+FROM [PointOfInterest] AS [c.PointsOfInterest]
+INNER JOIN (
+    SELECT TOP(1) [c0].[Id]
+    FROM [Cities] AS [c0]
+    WHERE [c0].[Id] = @__cityId_0
+    ORDER BY [c0].[Id]
+) AS [t] ON [c.PointsOfInterest].[CityId] = [t].[Id]
+ORDER BY [t].[Id]
+2019-03-07 15:52:05.0004|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 71.43ms.
+2019-03-07 15:52:05.0116|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.CityDto'.
+2019-03-07 15:52:05.0226|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) in 243.7433ms
+2019-03-07 15:52:05.0226|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 278.1391ms 200 application/json; charset=utf-8
+2019-03-07 15:54:52.9831|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 15:54:53.8061|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 15:54:54.2563|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (90ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:54:54.2868|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:54:54.3265|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 15:54:54.3433|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 15:54:54.7569|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 15:54:55.1725|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 15:54:55.4447|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 274.1398ms 404 text/plain
+2019-03-07 15:54:55.5875|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 15:54:55.5988|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 11.4743ms 404 text/plain
+2019-03-07 15:55:00.8638|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest/1  
+2019-03-07 15:55:00.9107|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2)
+2019-03-07 15:55:00.9273|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 15:55:00.9924|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (41ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:55:01.0308|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:55:01.0699|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 15:55:01.0839|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 15:55:01.1780|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2) with arguments (1, 1) - Validation state: Valid
+2019-03-07 15:55:01.2678|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (33ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Cities] AS [c]
+        WHERE [c].[Id] = @__cityId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-03-07 15:55:01.3256|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (31ms) [Parameters=[@__cityId_0='?' (DbType = Int32), @__pointOfInterestId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CityId], [p].[Description], [p].[Name]
+FROM [PointOfInterest] AS [p]
+WHERE ([p].[CityId] = @__cityId_0) AND ([p].[Id] = @__pointOfInterestId_1)
+2019-03-07 15:55:01.3644|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 171.6132ms.
+2019-03-07 15:55:01.3815|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.PointsOfInterestDto'.
+2019-03-07 15:55:01.4628|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2) in 537.5068ms
+2019-03-07 15:55:01.4761|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 613.3655ms 200 application/json; charset=utf-8
+2019-03-07 15:55:04.1794|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest  
+2019-03-07 15:55:04.1947|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2)
+2019-03-07 15:55:04.2063|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 15:55:04.2447|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:55:04.2783|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:55:04.3128|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 15:55:04.3236|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 15:55:04.3595|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) with arguments (1) - Validation state: Valid
+2019-03-07 15:55:04.4053|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (31ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Cities] AS [c]
+        WHERE [c].[Id] = @__cityId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-03-07 15:55:04.4590|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (35ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[CityId], [p].[Description], [p].[Name]
+FROM [PointOfInterest] AS [p]
+WHERE [p].[CityId] = @__cityId_0
+2019-03-07 15:55:04.4820|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 110.6482ms.
+2019-03-07 15:55:04.4945|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DotNetCore2.Models.PointsOfInterestDto, DotNetCore2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-03-07 15:55:04.5084|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) in 302.2945ms
+2019-03-07 15:55:04.5208|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 341.0437ms 200 application/json; charset=utf-8
+2019-03-07 15:55:23.5879|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1?includePointsOfInterest=true  
+2019-03-07 15:55:23.6029|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 15:55:23.6252|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 15:55:23.6577|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:55:23.7026|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 15:55:23.7374|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 15:55:23.7374|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 15:55:23.7839|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (1, True) - Validation state: Valid
+2019-03-07 15:55:23.8747|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (31ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+ORDER BY [c].[Id]
+2019-03-07 15:55:23.9241|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (29ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [c.PointsOfInterest].[Id], [c.PointsOfInterest].[CityId], [c.PointsOfInterest].[Description], [c.PointsOfInterest].[Name]
+FROM [PointOfInterest] AS [c.PointsOfInterest]
+INNER JOIN (
+    SELECT TOP(1) [c0].[Id]
+    FROM [Cities] AS [c0]
+    WHERE [c0].[Id] = @__cityId_0
+    ORDER BY [c0].[Id]
+) AS [t] ON [c.PointsOfInterest].[CityId] = [t].[Id]
+ORDER BY [t].[Id]
+2019-03-07 15:55:23.9476|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 153.3425ms.
+2019-03-07 15:55:23.9579|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.CityDto'.
+2019-03-07 15:55:23.9725|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) in 359.6249ms
+2019-03-07 15:55:23.9725|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 396.5127ms 200 application/json; charset=utf-8
+2019-03-07 16:04:17.6057|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\wagnerj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-07 16:04:18.4236|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 16:04:20.7152|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (90ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 16:04:20.7475|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 16:04:20.7903|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (27ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 16:04:20.8203|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 16:04:21.2429|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+2019-03-07 16:04:21.6903|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/  
+2019-03-07 16:04:21.9583|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 268.3722ms 404 text/plain
+2019-03-07 16:04:22.0800|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/favicon.ico  
+2019-03-07 16:04:22.0957|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 13.2912ms 404 text/plain
+2019-03-07 16:04:30.2039|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/1/pointsofinterest/3  
+2019-03-07 16:04:30.2502|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2)
+2019-03-07 16:04:30.2970|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 16:04:30.3727|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (63ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 16:04:30.4076|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 16:04:30.4506|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 16:04:30.4631|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 16:04:30.5570|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2) with arguments (1, 3) - Validation state: Valid
+2019-03-07 16:04:30.6399|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (30ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Cities] AS [c]
+        WHERE [c].[Id] = @__cityId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-03-07 16:04:30.6948|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (33ms) [Parameters=[@__cityId_0='?' (DbType = Int32), @__pointOfInterestId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CityId], [p].[Description], [p].[Name]
+FROM [PointOfInterest] AS [p]
+WHERE ([p].[CityId] = @__cityId_0) AND ([p].[Id] = @__pointOfInterestId_1)
+2019-03-07 16:04:30.7124|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.NotFoundResult in 141.1043ms.
+2019-03-07 16:04:30.7298|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 404
+2019-03-07 16:04:30.7443|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointOfInterest (DotNetCore2) in 479.8169ms
+2019-03-07 16:04:30.7628|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 559.1082ms 404 text/plain
+2019-03-07 16:04:47.4502|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/3/pointsofinterest  
+2019-03-07 16:04:47.4642|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetPointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2)
+2019-03-07 16:04:47.4901|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 16:04:47.5265|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 16:04:47.5894|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (49ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 16:04:47.6239|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 16:04:47.6337|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 16:04:47.6646|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) with arguments (3) - Validation state: Valid
+2019-03-07 16:04:47.7031|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Cities] AS [c]
+        WHERE [c].[Id] = @__cityId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-03-07 16:04:47.7461|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (27ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[CityId], [p].[Description], [p].[Name]
+FROM [PointOfInterest] AS [p]
+WHERE [p].[CityId] = @__cityId_0
+2019-03-07 16:04:47.7831|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 106.6734ms.
+2019-03-07 16:04:47.7987|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DotNetCore2.Models.PointsOfInterestDto, DotNetCore2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-03-07 16:04:47.8696|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.GetPointsOfInterest (DotNetCore2) in 394.2665ms
+2019-03-07 16:04:47.8696|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 429.9641ms 200 application/json; charset=utf-8
+2019-03-07 16:05:13.0489|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:50790/api/cities/3/pointsofinterest application/json 111
+2019-03-07 16:05:13.0619|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "CreatePointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.CreatePointsOfInterest (DotNetCore2)
+2019-03-07 16:05:13.0853|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 16:05:13.1313|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 16:05:13.1639|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 16:05:13.1953|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 16:05:13.1953|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 16:05:13.2562|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.CreatePointsOfInterest (DotNetCore2) with arguments (3, DotNetCore2.Models.PointOfInterestForCreationDto) - Validation state: Valid
+2019-03-07 16:05:13.2954|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (28ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Cities] AS [c]
+        WHERE [c].[Id] = @__cityId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-03-07 16:05:13.3087|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.CreatePointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.NotFoundResult in 40.2984ms.
+2019-03-07 16:05:13.3190|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 404
+2019-03-07 16:05:13.3190|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.CreatePointsOfInterest (DotNetCore2) in 257.0138ms
+2019-03-07 16:05:13.3415|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 293.6717ms 404 text/plain
+2019-03-07 16:05:31.2163|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:50790/api/cities/3/pointsofinterest application/json 111
+2019-03-07 16:05:31.2274|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "CreatePointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.CreatePointsOfInterest (DotNetCore2)
+2019-03-07 16:05:31.2582|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 16:05:31.2899|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 16:05:31.3210|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 16:05:31.3565|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 16:05:31.3681|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 16:05:31.3994|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.CreatePointsOfInterest (DotNetCore2) with arguments (3, DotNetCore2.Models.PointOfInterestForCreationDto) - Validation state: Valid
+2019-03-07 16:05:36.1154|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Cities] AS [c]
+        WHERE [c].[Id] = @__cityId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-03-07 16:06:05.1484|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.CreatePointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.NotFoundResult in 33728.914ms.
+2019-03-07 16:06:05.1484|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 404
+2019-03-07 16:06:05.1815|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.CreatePointsOfInterest (DotNetCore2) in 33931.1801ms
+2019-03-07 16:06:05.2033|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 33977.5444ms 404 text/plain
+2019-03-07 16:06:07.1994|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:50790/api/cities/3/pointsofinterest application/json 111
+2019-03-07 16:06:07.2097|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "CreatePointsOfInterest", controller = "PointsOfInterest"}. Executing action DotNetCore2.Controllers.PointsOfInterestController.CreatePointsOfInterest (DotNetCore2)
+2019-03-07 16:06:07.2097|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 16:06:07.2563|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 16:06:07.2871|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 16:06:07.3204|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 16:06:07.3204|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 16:06:07.3651|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.PointsOfInterestController.CreatePointsOfInterest (DotNetCore2) with arguments (3, DotNetCore2.Models.PointOfInterestForCreationDto) - Validation state: Valid
+2019-03-07 16:06:11.0972|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Cities] AS [c]
+        WHERE [c].[Id] = @__cityId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-03-07 16:06:11.1458|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (29ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+2019-03-07 16:06:11.2434|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (37ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 200), @p2='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [PointOfInterest] ([CityId], [Description], [Name])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [PointOfInterest]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2019-03-07 16:06:11.2698|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.PointsOfInterestController.CreatePointsOfInterest (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.CreatedAtRouteResult in 3892.6816ms.
+2019-03-07 16:06:11.2811|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.PointsOfInterestDto'.
+2019-03-07 16:06:11.3087|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.PointsOfInterestController.CreatePointsOfInterest (DotNetCore2) in 4075.1601ms
+2019-03-07 16:06:11.3196|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 4120.5967ms 201 application/json; charset=utf-8
+2019-03-07 16:06:24.4293|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/3  
+2019-03-07 16:06:24.4446|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 16:06:24.4446|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 16:06:24.4941|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 16:06:24.5277|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 16:06:24.5618|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 16:06:24.5709|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 16:06:24.6032|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (3, False) - Validation state: Valid
+2019-03-07 16:06:24.6428|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (28ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+2019-03-07 16:06:24.6578|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 43.7325ms.
+2019-03-07 16:06:24.6689|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.CityWithoutPointsOfInterestDto'.
+2019-03-07 16:06:24.6821|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) in 226.0665ms
+2019-03-07 16:06:24.6821|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 264.2905ms 200 application/json; charset=utf-8
+2019-03-07 16:06:32.7228|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:50790/api/cities/3?includePointsOfInterest=true  
+2019-03-07 16:06:32.7354|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "GetCity", controller = "Cities"}. Executing action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2)
+2019-03-07 16:06:32.7478|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.2.2-servicing-10034 initialized 'CityInfoContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-07 16:06:32.7798|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 16:06:32.8122|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2019-03-07 16:06:32.8467|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2019-03-07 16:06:32.8584|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2019-03-07 16:06:32.8953|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) with arguments (3, True) - Validation state: Valid
+2019-03-07 16:06:32.9802|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (30ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name]
+FROM [Cities] AS [c]
+WHERE [c].[Id] = @__cityId_0
+ORDER BY [c].[Id]
+2019-03-07 16:06:33.0289|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (29ms) [Parameters=[@__cityId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [c.PointsOfInterest].[Id], [c.PointsOfInterest].[CityId], [c.PointsOfInterest].[Description], [c.PointsOfInterest].[Name]
+FROM [PointOfInterest] AS [c.PointsOfInterest]
+INNER JOIN (
+    SELECT TOP(1) [c0].[Id]
+    FROM [Cities] AS [c0]
+    WHERE [c0].[Id] = @__cityId_0
+    ORDER BY [c0].[Id]
+) AS [t] ON [c.PointsOfInterest].[CityId] = [t].[Id]
+ORDER BY [t].[Id]
+2019-03-07 16:06:33.0480|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 140.9676ms.
+2019-03-07 16:06:33.0597|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'DotNetCore2.Models.CityDto'.
+2019-03-07 16:06:33.0751|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action DotNetCore2.Controllers.CitiesController.GetCity (DotNetCore2) in 327.6253ms
+2019-03-07 16:06:33.0877|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 364.7993ms 200 application/json; charset=utf-8
